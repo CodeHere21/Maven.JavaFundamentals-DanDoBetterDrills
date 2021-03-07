@@ -8,7 +8,7 @@ public class StringUtilities {
      * @return `Hello World` as a string
      */
     public static String getHelloWorld() {
-        return null;
+        return "Hello World";
     }
 
     /**
@@ -17,7 +17,7 @@ public class StringUtilities {
      * @return the concatenation of two strings, `firstSegment`, and `secondSegment`
      */
     public static String concatenation(String firstSegment, String secondSegment){
-        return null;
+        return firstSegment.concat(secondSegment);
     }
 
     /**
@@ -26,7 +26,7 @@ public class StringUtilities {
      * @return the concatenation of an integer, `firstSegment`, and a String, `secondSegment`
      */
     public static String concatenation(int firstSegment, String secondSegment){
-        return null;
+        return firstSegment+secondSegment;
     }
 
     /**
@@ -34,7 +34,13 @@ public class StringUtilities {
      * @return the first 3 characters of `input`
      */
     public static String getPrefix(String input){
-        return null;
+
+        String firstThreeChars="";
+        if(input.length()>3){
+            firstThreeChars=input.substring(0,3);
+        }
+        else {firstThreeChars = input;}
+        return firstThreeChars;
     }
 
     /**
@@ -42,7 +48,15 @@ public class StringUtilities {
      * @return the last 3 characters of `input`
      */
     public static String getSuffix(String input){
-        return null;
+
+        String lastThreeChars="";
+        if(input.length()>3){
+            lastThreeChars=input.substring(input.length()-3);
+        }
+        else {
+            lastThreeChars=input;
+        }
+        return lastThreeChars;
     }
 
     /**
@@ -51,7 +65,14 @@ public class StringUtilities {
      * @return the equivalence of two strings, `inputValue` and `comparableValue`
      */
     public static Boolean compareTwoStrings(String inputValue, String comparableValue){
-        return null;
+
+        Boolean flag=false;
+        if(inputValue.equalsIgnoreCase(comparableValue))
+        {
+            flag=true;
+        } else {flag=false;}
+
+        return flag;
     }
 
     /**
@@ -59,7 +80,14 @@ public class StringUtilities {
      * @return the middle character of `inputValue`
      */
     public static Character getMiddleCharacter(String inputValue){
-        return null;
+
+        int len=inputValue.length();
+        int middle=len/2;
+        if (middle%2==0) {
+            return inputValue.charAt(middle-1); //len is even there are 2 middle positions
+        } else {
+            return inputValue.charAt(middle);
+        }
     }
 
     /**
@@ -67,7 +95,8 @@ public class StringUtilities {
      * @return the first sequence of characters
      */
     public static String getFirstWord(String spaceDelimitedString){
-        return null;
+
+        return (spaceDelimitedString + " ").split(" ")[0];
     }
 
     /**
@@ -75,7 +104,8 @@ public class StringUtilities {
      * @return the second word of a string delimited by spaces.
      */
     public static String getSecondWord(String spaceDelimitedString){
-        return null;
+
+        return (spaceDelimitedString + " ").split(" ")[1];
     }
 
     /**
@@ -83,6 +113,12 @@ public class StringUtilities {
      * @return an identical string with characters in reverse order.
      */
     public static String reverse(String stringToReverse){
-        return null;
+
+        byte[] strAsByteArray= stringToReverse.getBytes();
+        byte[] result = new byte[strAsByteArray.length];
+        for(int i=0;i<strAsByteArray.length;i++){
+            result[i]=strAsByteArray[strAsByteArray.length-i-1];
+        }
+        return new String(result);
     }
 }
